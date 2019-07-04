@@ -1,3 +1,5 @@
-<van-button square type="primary" block bind:click = "navigateToAdd">insert</van-button>
+<!-- <van-button square type="primary" block bind:click = "navigateToAdd">insert</van-button>
 <van-button square type="primary" block plain bind:click = "navigateToGet">getall</van-button>
-<van-button square type="primary" block bind:click = "navigateToDetails">details</van-button>
+<van-button square type="primary" block bind:click = "navigateToDetails">details</van-button> -->
+
+<text>you are on the home page</text>

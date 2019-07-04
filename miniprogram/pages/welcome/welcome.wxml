@@ -1,0 +1,4 @@
+<!--pages/welcome/welcome.wxml-->
+<text>welcome to a demo</text>
+
+<van-button type="primary" block bind:click = "navigateToHome">Start</van-button>
