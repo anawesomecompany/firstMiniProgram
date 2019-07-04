@@ -3,3 +3,4 @@
 <van-button square type="primary" block bind:click = "navigateToDetails">details</van-button> -->
 
 <text>you are on the home page</text>
+<van-button type="primary" block bind:click = "navigateToQuestion">Question</van-button>
