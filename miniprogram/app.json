@@ -3,7 +3,8 @@
     "pages/welcome/welcome",
     "pages/home/home",
     "pages/question/question",
-    "pages/news/news"
+    "pages/news/news",
+    "pages/user/user"
   ],
   "tabBar": {
     "custom": false,
@@ -25,7 +26,7 @@
         "text": "News"
       },
       {
-        "pagePath": "pages/welcome/welcome",
+        "pagePath": "pages/user/user",
         "iconPath": "image/noun_User_1551879.png",
         "selectedIconPath": "image/noun_User_1551880.png",
         "text": "Me"
