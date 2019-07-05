@@ -34,18 +34,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "add",
-					"pathName": "pages/home/home",
+					"name": "question",
+					"pathName": "pages/question/question",
+					"query": "",
 					"scene": null
 				}
 			]

@@ -1,6 +1,11 @@
 <!--pages/question/question.wxml-->
-<text>question \n</text>
-<text>answer \n</text>
+
+
+<van-card
+  title="{{q.question}}"
+  desc="{{q.answer}}"
+/>
+
 
 <van-button type="primary">I Know</van-button>
 <van-button type="danger">Show Answer</van-button>
