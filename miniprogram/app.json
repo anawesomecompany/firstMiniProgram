@@ -3,13 +3,39 @@
     "pages/welcome/welcome",
     "pages/home/home",
     "pages/question/question",
-    "pages/addQuestion/addQuestion"
+    "pages/news/news"
   ],
+  "tabBar": {
+    "custom": false,
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/question/question",
+        "iconPath": "image/noun_Question_646495.png",
+        "selectedIconPath": "image/noun_Question_1145852.png",
+        "text": "Today's Question"
+      },
+      {
+        "pagePath": "pages/welcome/welcome",
+        "iconPath": "image/noun_news_2204668.png",
+        "selectedIconPath": "image/noun_news_1539438.png",
+        "text": "News"
+      },
+      {
+        "pagePath": "pages/welcome/welcome",
+        "iconPath": "image/noun_User_1551879.png",
+        "selectedIconPath": "image/noun_User_1551880.png",
+        "text": "Me"
+      }
+    ]
+  },
   "window": {
-    "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "Java Quiz",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"
