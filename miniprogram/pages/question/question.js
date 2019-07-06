@@ -11,6 +11,7 @@ Page({
   },
 
   resetQuestion: function () {
+    console.log("in question.js resetQuestion")
     questions.get().then(res => {
       var size = res.data.length
       var rand = Math.floor(Math.random() * size)
@@ -20,24 +21,51 @@ Page({
     })
   },
 
+  addOneCount: function () {
+    console.log("in question.js addOneCount")
+
+    var app = getApp();
+    var openid = app.globalData.openid;
+    var oldCount = 0;
+    db.collection('users').where({
+      openid: openid
+    }).get({
+      success: res => {
+        oldCount = res.data[0].questionsCount
+        db.collection('users').doc(app.globalData.user._id).update({
+          data: {
+            questionsCount: oldCount+1
+          },
+          success: function (res) {
+            //console.log(res)
+          }
+        })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    console.log("in question.js onLoad")
     this.resetQuestion();
   },
 
   showAnswer:function(){
+    console.log("in question.js showAnswer")
     this.setData({
       showAnswer: true
     })
   },
 
   showNext:function(){
+    console.log("in question.js showNext")
       this.setData({
         showAnswer: false
       })
-      this.resetQuestion();
+    this.resetQuestion();
+    this.addOneCount();
   },
 
 
