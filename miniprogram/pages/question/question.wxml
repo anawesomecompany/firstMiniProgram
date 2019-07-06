@@ -7,7 +7,7 @@
 /> -->
 
 <view>
-  <text>
+  <text class='question'>
     {{q.question}}
   </text>
 </view>
@@ -27,4 +27,4 @@
 
 <van-button type="primary">I Know</van-button>
 <van-button type="danger" bind:click ="showAnswer">Show Answer</van-button>
-<van-button type="info">Next</van-button>
+<van-button type="info" bind:click = "showNext">Next</van-button>

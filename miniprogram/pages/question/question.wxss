@@ -1,1 +1,6 @@
 /* pages/question/question.wxss */
+
+.question{
+  font-size: 50rpx;
+  font-weight: bold;
+}

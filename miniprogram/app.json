@@ -14,13 +14,19 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
+        "pagePath": "pages/welcome/welcome",
+        "iconPath": "image/noun_java_424584.png",
+        "selectedIconPath": "image/noun_java_424621.png",
+        "text": "News"
+      },
+      {
         "pagePath": "pages/question/question",
         "iconPath": "image/noun_Question_646495.png",
         "selectedIconPath": "image/noun_Question_1145852.png",
         "text": "Today's Question"
       },
       {
-        "pagePath": "pages/welcome/welcome",
+        "pagePath": "pages/news/news",
         "iconPath": "image/noun_news_2204668.png",
         "selectedIconPath": "image/noun_news_1539438.png",
         "text": "News"
