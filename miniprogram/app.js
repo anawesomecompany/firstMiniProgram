@@ -15,8 +15,8 @@ App({
     wx.cloud.callFunction({
       name: 'getOpenId',
       complete: res => {
-        console.log(res)
-        console.log('云函数获取到的openid:', res.result.openId)
+        // console.log(res)
+        // console.log('云函数获取到的openid:', res.result.openId)
         var openid = res.result.openId;
         that.globalData.openid = openid;
       }

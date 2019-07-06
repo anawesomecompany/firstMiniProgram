@@ -17,7 +17,7 @@
         "pagePath": "pages/welcome/welcome",
         "iconPath": "image/noun_java_424584.png",
         "selectedIconPath": "image/noun_java_424621.png",
-        "text": "News"
+        "text": "Welcome"
       },
       {
         "pagePath": "pages/question/question",
@@ -43,7 +43,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Java Quiz",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   },
   "sitemapLocation": "sitemap.json"
 }

@@ -10,10 +10,7 @@ Page({
     showAnswer: false
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function () {
+  resetQuestion: function () {
     questions.get().then(res => {
       var size = res.data.length
       var rand = Math.floor(Math.random() * size)
@@ -21,6 +18,13 @@ Page({
         q: res.data[rand]
       })
     })
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function () {
+    this.resetQuestion();
   },
 
   showAnswer:function(){
@@ -33,14 +37,10 @@ Page({
       this.setData({
         showAnswer: false
       })
-      questions.get().then(res => {
-        var size = res.data.length
-        var rand = Math.floor(Math.random() * size)
-        this.setData({
-          q: res.data[rand]
-        })
-      })
+      this.resetQuestion();
   },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
