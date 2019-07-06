@@ -7,25 +7,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    showAnswer: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    // questions.get().then(res=>{
-    //   this.setData({
-    //     java:res.data,
-    //   })
-    // })
-    // var rand = java[Math.floor(Math.random() * java.length)]
+  onLoad: function () {
     questions.get().then(res => {
       var size = res.data.length
       var rand = Math.floor(Math.random() * size)
       this.setData({
         q: res.data[rand]
       })
+    })
+  },
+
+  showAnswer:function(){
+    this.setData({
+      showAnswer: true
     })
   },
 

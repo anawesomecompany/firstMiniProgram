@@ -1,4 +1,6 @@
 /**app.wxss**/
+/* 导入weui.css样式 */
+@import 'weui.wxss';
 .container {
   display: flex;
   flex-direction: column;

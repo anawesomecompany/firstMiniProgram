@@ -1,12 +1,30 @@
 <!--pages/question/question.wxml-->
 
 
-<van-card
+<!-- <van-card
   title="{{q.question}}"
   desc="{{q.answer}}"
-/>
+/> -->
+
+<view>
+  <text>
+    {{q.question}}
+  </text>
+</view>
+
+<view wx:if = "{{showAnswer}}">
+  <text>
+    {{q.answer}}
+  </text>
+</view>
+
+<view>
+  <text>
+    \n\n\n
+  </text>
+</view>
 
 
 <van-button type="primary">I Know</van-button>
-<van-button type="danger">Show Answer</van-button>
+<van-button type="danger" bind:click ="showAnswer">Show Answer</van-button>
 <van-button type="info">Next</van-button>
