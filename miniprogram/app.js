@@ -2,6 +2,7 @@
 wx.cloud.init()
 const db = wx.cloud.database()
 
+
 App({
   onLaunch: function () {
     console.log("in app.js onLaunch")
