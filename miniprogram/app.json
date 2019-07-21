@@ -4,6 +4,7 @@
     "pages/home/home",
     "pages/question/question",
     "pages/news/news",
+    "pages/quiz/quiz",
     "pages/user/user"
   ],
   "tabBar": {
@@ -26,7 +27,7 @@
         "text": "Today's Question"
       },
       {
-        "pagePath": "pages/news/news",
+        "pagePath": "pages/quiz/quiz",
         "iconPath": "image/noun_news_2204668.png",
         "selectedIconPath": "image/noun_news_1539438.png",
         "text": "News"

@@ -1,0 +1,23 @@
+
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">Question:</view>
+        <view class="page__desc">{{q.question}}</view>
+    </view>
+    <view class="page__bd">
+        <form bindsubmit="formSubmit">
+            <wux-checkbox-group name="choice" value="{{ value3 }}" title="" bind:change="onChange3">
+                <wux-checkbox title="A" extra="{{q.choice_a}}" value="choice_a" />
+                <wux-checkbox title="B" extra="{{q.choice_b}}" value="choice_b" />
+                <wux-checkbox title="C" extra="{{q.choice_c}}" value="choice_c" />
+                <wux-checkbox title="D" extra="{{q.choice_d}}" value="choice_d" />
+            </wux-checkbox-group>
+            <view class="btn-area">
+                <button formType="submit">Submit</button>
+            </view>
+        </form>
+    </view>
+</view>
+
+
+<wux-toast id="wux-toast" />
