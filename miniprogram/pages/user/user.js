@@ -17,7 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
-    console.log("in user.js onLoad")
+    //console.log("in user.js onLoad")
     var app = getApp();
     var openid = app.globalData.openid;
     var user = app.globalData.user;
@@ -39,7 +39,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    console.log("in user.js onShow")
+    //console.log("in user.js onShow")
 
     var app = getApp();
     var openid = app.globalData.openid;

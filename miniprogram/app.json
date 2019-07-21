@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/welcome/welcome",
-    "pages/home/home",
     "pages/question/question",
     "pages/news/news",
     "pages/quiz/quiz",
+    "pages/quizEntry/quizEntry",
+    "pages/quizResult/quizResult",
     "pages/user/user"
   ],
   "tabBar": {
@@ -27,10 +28,10 @@
         "text": "Today's Question"
       },
       {
-        "pagePath": "pages/quiz/quiz",
+        "pagePath": "pages/quizEntry/quizEntry",
         "iconPath": "image/noun_news_2204668.png",
         "selectedIconPath": "image/noun_news_1539438.png",
-        "text": "News"
+        "text": "Quiz"
       },
       {
         "pagePath": "pages/user/user",
