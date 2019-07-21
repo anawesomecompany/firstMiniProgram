@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "van-button": "vant-weapp/dist/button/index",
-    "van-panel": "vant-weapp/dist/panel/index"
+    "wux-button": "wux-weapp/button/index",
+    "wux-card": "wux-weapp/card/index",
+    "wux-white-space": "wux-weapp/white-space/index"
   }
 }

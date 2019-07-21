@@ -1,6 +1,25 @@
 /* pages/question/question.wxss */
+.questionSection {
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+}
 
-.question{
-  font-size: 50rpx;
+.questionCard{
+  font-size: 30rpx;
   font-weight: bold;
+  height: 400rpx;
+}
+
+.answerCard{
+  font-size: 30rpx;
+  font-weight: bold;
+  height: 400rpx;
+}
+
+.buttonGroup {
+  bottom:20rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  position:fixed; 
+  width: 650rpx;
 }
