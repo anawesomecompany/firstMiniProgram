@@ -1,30 +1,50 @@
 <!--pages/question/question.wxml-->
-
-
-<!-- <van-card
-  title="{{q.question}}"
-  desc="{{q.answer}}"
-/> -->
-
-<view>
-  <text class='question'>
-    {{q.question}}
-  </text>
+<view class="questionSection">
+  <wux-card 
+    bordered="{{ true }}"
+    class="questionCard" 
+    title="Question">
+    <scroll-view 
+      slot="body" 
+      scroll-y style="height: 80rpx;">
+       {{q.question}}
+    </scroll-view>
+  </wux-card>
+  <wux-white-space size="default"/>
+  <wux-card 
+    bordered="{{ true }}"
+    class="answerCard" 
+    wx:if="{{showAnswer}}"  
+    title="Answer">
+    <scroll-view 
+      slot="body" 
+      scroll-y style="height: 450rpx;" 
+      wx:if="{{showAnswer}}">
+      {{q.answer}}
+    </scroll-view>
+  </wux-card>
 </view>
 
-<view wx:if = "{{showAnswer}}">
-  <text>
-    {{q.answer}}
-  </text>
+
+<view class="buttonGroup">
+    <wux-button 
+      size="small" 
+      type="royal" 
+      full="{{true}}">
+      I Know
+    </wux-button>
+    <wux-button 
+      size="small" 
+      bind:click="showAnswer" 
+      full="{{true}}" 
+      type="positive">
+      Show Answer
+    </wux-button>
+    <wux-button 
+      size="small" 
+      bind:click="showNext" 
+      full="{{true}}" 
+      type="balanced">
+      Next
+    </wux-button>
 </view>
-
-<view>
-  <text>
-    \n\n\n
-  </text>
-</view>
-
-
-<van-button type="primary">I Know</van-button>
-<van-button type="danger" bind:click ="showAnswer">Show Answer</van-button>
-<van-button type="info" bind:click = "showNext">Next</van-button>
