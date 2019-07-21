@@ -21,12 +21,3 @@
 
 
 <wux-toast id="wux-toast" />
-
-<!-- <view class="page">
-    <view class="page__hd">
-    </view>
-    <view class="page__bd page__bd_spacing">
-        <wux-button block type="light" bind:click="showToast">Success</wux-button>
-        <wux-button block type="light" bind:click="showToastCancel">Cancel</wux-button>
-    </view>
-</view> -->

@@ -101,7 +101,7 @@ Page({
   showToast() {
     $wuxToast().show({
       type: 'success',
-      duration: 1500,
+      duration: 500,
       color: '#fff',
       text: 'Bingo',
       success: () => console.log('Bingo')
@@ -110,7 +110,7 @@ Page({
   showToastCancel() {
     $wuxToast().show({
       type: 'cancel',
-      duration: 1500,
+      duration: 500,
       color: '#fff',
       text: 'Wrong',
       success: () => console.log('Wrong')
