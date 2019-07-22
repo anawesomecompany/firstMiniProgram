@@ -140,7 +140,6 @@ Page({
 
   },
   quit() {
-    console.log("inquit")
     wx.setStorageSync('quizScore', this.data.score)
     wx.redirectTo({
       url: '../quizResult/quizResult',

@@ -55,7 +55,8 @@ App({
     db.collection('users').add({
       data: {
         openid: openid,
-        questionsCount: 0
+        questionsCount: 0,
+        quizHistory:[]
       },
       success: function (res) {
         console.log("Successfully insert user")

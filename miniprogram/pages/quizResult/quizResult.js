@@ -1,16 +1,36 @@
 // pages/quizResult/quizResult.js
+const db = wx.cloud.database()
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
     score:'',
+    //quizHistory:[]
   },
 
   quit() {
+    this.addQuizHistory();
     wx.switchTab({
       url: '../quizEntry/quizEntry',
+    })
+  },
+
+  addQuizHistory: function () {
+    var app = getApp();
+    var openid = app.globalData.openid;
+    db.collection('users').where({
+      openid: openid
+    }).get({
+      success: res => {
+        let quizHistoryOld = []
+        quizHistoryOld = res.data[0].quizHistory
+        quizHistoryOld.push(this.data.score)
+        db.collection('users').doc(app.globalData.user._id).update({
+          data: {
+            quizHistory: quizHistoryOld
+          },
+          success: function (res) {
+          }
+        })
+      }
     })
   },
 
