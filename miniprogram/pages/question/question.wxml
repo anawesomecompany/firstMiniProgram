@@ -29,6 +29,7 @@
 <view class="buttonGroup">
     <wux-button 
       size="small" 
+      bind:click="iKnow" 
       type="royal" 
       full="{{true}}">
       I Know
@@ -48,3 +49,5 @@
       Next
     </wux-button>
 </view>
+
+<wux-toast id="wux-toast" />

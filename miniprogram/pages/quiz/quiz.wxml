@@ -1,7 +1,14 @@
 
+<text>
+Question : {{q_num}}
+</text>
+<text>
+Score: {{score}}/15
+</text>
+
 <view class="page">
     <view class="page__hd">
-        <view class="page__title">Question:</view>
+        <!-- <view class="page__title">Question:</view> -->
         <view class="page__desc">{{q.question}}</view>
     </view>
     <view class="page__bd">
@@ -17,6 +24,23 @@
             </view>
         </form>
     </view>
+</view>
+
+<view class="buttonGroup">
+    <wux-button 
+      size="small" 
+      bind:click="next" 
+      type="royal" 
+      full="{{true}}">
+      Next
+    </wux-button>
+    <wux-button 
+      size="small" 
+      bind:click="quit" 
+      full="{{true}}" 
+      type="positive">
+      Quit
+    </wux-button>
 </view>
 
 

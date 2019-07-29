@@ -11,9 +11,9 @@
     <view class="weui-cells">
         <view class="weui-cell">
             <view class="weui-cell__bd">
-                <text>Parry</text>
+                <text>Quiz平均分</text>
             </view>
-            <view class="weui-cell__ft">说明文字</view>
+            <view class="weui-cell__ft">{{quizAveScore}}</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">
@@ -22,9 +22,9 @@
             <view class="weui-cell__ft">{{questionsCount}}</view>
         </view>
 
-        <view class="weui-cell">
+        <!-- <view class="weui-cell">
             <view class="weui-cell__ft">{{openid}}</view>
-        </view>
+        </view> -->
 
     </view>
 </view>

@@ -1,4 +1,5 @@
 // pages/question/question.js
+import { $wuxToast } from '../../wux-weapp/index'
 const db = wx.cloud.database()
 const questions = db.collection('java_core_questions')
 Page({
@@ -11,7 +12,7 @@ Page({
   },
 
   resetQuestion: function () {
-    console.log("in question.js resetQuestion")
+    //console.log("in question.js resetQuestion")
     questions.get().then(res => {
       var size = res.data.length
       var rand = Math.floor(Math.random() * size)
@@ -22,7 +23,7 @@ Page({
   },
 
   addOneCount: function () {
-    console.log("in question.js addOneCount")
+    //console.log("in question.js addOneCount")
 
     var app = getApp();
     var openid = app.globalData.openid;
@@ -48,15 +49,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    console.log("in question.js onLoad")
+    //console.log("in question.js onLoad")
     this.resetQuestion();
   },
 
   showAnswer:function(){
-    console.log("in question.js showAnswer")
+    //console.log("in question.js showAnswer")
     this.setData({
       showAnswer: true
     })
+  },
+
+  iKnow: function () {
+    this.showToastIcon()
   },
 
   showNext:function(){
@@ -117,5 +122,15 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  showToastIcon() {
+    $wuxToast().show({
+      type: 'default',
+      duration: 1500,
+      color: '#fff',
+      icon: 'ios-happy',
+      text: '你膨胀了'
+    })
+  },
 })

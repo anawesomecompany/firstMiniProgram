@@ -1,0 +1,7 @@
+<wux-button 
+      size="large" 
+      bind:click="lauchQuiz" 
+      type="royal" 
+      full="{{true}}">
+      Start
+</wux-button>

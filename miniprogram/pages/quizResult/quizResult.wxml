@@ -1,0 +1,11 @@
+<text>
+Your Score: {{score}}/100
+</text>
+
+<wux-button 
+      size="large" 
+      bind:click="quit" 
+      type="royal" 
+      full="{{true}}">
+      Go Back
+</wux-button>

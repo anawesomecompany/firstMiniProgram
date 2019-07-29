@@ -10,7 +10,9 @@ Page({
    */
   data: {
      value3: [],
-     q:''
+     score:0,
+     q_num:0,
+     preEvent: ''
   },
 
   onChange(field, e) {
@@ -25,6 +27,12 @@ Page({
   },
 
   onChange3(e) {
+    if (this.data.preEvent != '') {
+      this.onResetCheckBox(this.data.preEvent);
+    }
+    this.setData({
+      preEvent: e
+    })
     this.onChange('value3', e)
   },
   formSubmit(e) {
@@ -32,20 +40,54 @@ Page({
     //console.log(e.detail.value.choice.length)
     if (e.detail.value.choice.length==1 &&
       e.detail.value.choice[0]==this.data.q.answer){
+      this.setData({
+        score:this.data.score+1
+      })
       this.showToast()
     }else{
       this.showToastCancel()
     }
+    this.next();
+    if (e.detail.value.choice.length != 0){
+      this.onResetCheckBox(this.data.preEvent);
+    }
+    this.data.preEvent = ''
   },
+
+  onResetCheckBox(e){
+    e.detail.checked = false;
+    this.onChange('value3',e);
+  },
+
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
     mcqCollection.get().then(res => {
+      res.data.sort(function () {
+        return .5 - Math.random();
+      });
+
       this.setData({
-        q: res.data[0]
+        qs: res.data
       })
+      this.setData({
+        q: this.data.qs[this.data.qs.length - 1]
+      })
+    })
+  },
+
+  next:function(){
+    if(this.data.qs.length==0){
+      this.quit();
+    }
+    this.data.qs.pop();
+    this.setData({
+      q: this.data.qs[this.data.qs.length - 1]
+    })
+    this.setData({
+      q_num: this.data.q_num + 1
     })
   },
 
@@ -97,23 +139,27 @@ Page({
   onShareAppMessage: function () {
 
   },
+  quit() {
+    wx.setStorageSync('quizScore', this.data.score)
+    wx.redirectTo({
+      url: '../quizResult/quizResult',
+    })
+  },
 
   showToast() {
     $wuxToast().show({
       type: 'success',
-      duration: 500,
+      duration: 1000,
       color: '#fff',
-      text: 'Bingo',
-      success: () => console.log('Bingo')
+      text: 'Bingo'
     })
   },
   showToastCancel() {
     $wuxToast().show({
       type: 'cancel',
-      duration: 500,
+      duration: 1000,
       color: '#fff',
-      text: 'Wrong',
-      success: () => console.log('Wrong')
+      text: 'Wrong'
     })
   },
 })
