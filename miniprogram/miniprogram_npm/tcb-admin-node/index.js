@@ -4,7 +4,7 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {}, _tempexport
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = __MODS__[modId].m; m._exports = m._tempexports; var desp = Object.getOwnPropertyDescriptor(m, "exports"); if (desp && desp.configurable) Object.defineProperty(m, "exports", { set: function (val) { if(typeof val === "object" && val !== m._exports) { m._exports.__proto__ = val.__proto__; Object.keys(val).forEach(function (k) { m._exports[k] = val[k]; }); } m._tempexports = val }, get: function () { return m._tempexports; } }); __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1590559706093, function(require, module, exports) {
+__DEFINE__(1590559706422, function(require, module, exports) {
 const database = require('@cloudbase/database').Db
 const storage = require('./src/storage')
 const functions = require('./src/functions')
@@ -112,8 +112,8 @@ extend(Tcb.prototype, auth)
 
 module.exports = new Tcb()
 
-}, function(modId) {var map = {"./src/storage":1590559706094,"./src/functions":1590559706098,"./src/auth":1590559706099,"./src/wx":1590559706100,"./src/utils/dbRequest":1590559706101}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1590559706094, function(require, module, exports) {
+}, function(modId) {var map = {"./src/storage":1590559706423,"./src/functions":1590559706427,"./src/auth":1590559706428,"./src/wx":1590559706429,"./src/utils/dbRequest":1590559706430}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1590559706423, function(require, module, exports) {
 const request = require('request')
 const fs = require('fs')
 const httpRequest = require('../utils/httpRequest')
@@ -374,8 +374,8 @@ exports.getTempFileURL = getTempFileURL
 exports.downloadFile = downloadFile
 exports.getUploadMetadata = getUploadMetadata
 
-}, function(modId) { var map = {"../utils/httpRequest":1590559706095}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1590559706095, function(require, module, exports) {
+}, function(modId) { var map = {"../utils/httpRequest":1590559706424}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1590559706424, function(require, module, exports) {
 var request = require('request')
 var auth = require('./auth.js')
 const version = require('../../package.json').version
@@ -528,8 +528,8 @@ module.exports = function(args) {
   })
 }
 
-}, function(modId) { var map = {"./auth.js":1590559706096,"../../package.json":1590559706097}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1590559706096, function(require, module, exports) {
+}, function(modId) { var map = {"./auth.js":1590559706425,"../../package.json":1590559706426}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1590559706425, function(require, module, exports) {
 var crypto = require('crypto')
 
 function camSafeUrlEncode(str) {
@@ -683,7 +683,7 @@ var getAuth = function(opt) {
 exports.getAuth = getAuth
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1590559706097, function(require, module, exports) {
+__DEFINE__(1590559706426, function(require, module, exports) {
 module.exports = {
   "_args": [
     [
@@ -788,7 +788,7 @@ module.exports = {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1590559706098, function(require, module, exports) {
+__DEFINE__(1590559706427, function(require, module, exports) {
 const httpRequest = require('../utils/httpRequest')
 
 /**
@@ -848,8 +848,8 @@ function callFunction({ name, data }) {
 
 exports.callFunction = callFunction
 
-}, function(modId) { var map = {"../utils/httpRequest":1590559706095}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1590559706099, function(require, module, exports) {
+}, function(modId) { var map = {"../utils/httpRequest":1590559706424}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1590559706428, function(require, module, exports) {
 function getUserInfo() {
   const openId = process.env.WX_OPENID || ''
   const appId = process.env.WX_APPID || ''
@@ -867,7 +867,7 @@ exports.auth = function() {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1590559706100, function(require, module, exports) {
+__DEFINE__(1590559706429, function(require, module, exports) {
 const httpRequest = require('../utils/httpRequest')
 
 exports.callWxOpenApi = function({ apiName, requestData } = {}) {
@@ -940,8 +940,8 @@ exports.callCompatibleWxOpenApi = function({ apiName, requestData } = {}) {
   }).then(res => res)
 }
 
-}, function(modId) { var map = {"../utils/httpRequest":1590559706095}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1590559706101, function(require, module, exports) {
+}, function(modId) { var map = {"../utils/httpRequest":1590559706424}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1590559706430, function(require, module, exports) {
 const requestHandler = require('./httpRequest')
 
 /**
@@ -996,7 +996,7 @@ class Request {
 
 module.exports = Request
 
-}, function(modId) { var map = {"./httpRequest":1590559706095}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1590559706093);
+}, function(modId) { var map = {"./httpRequest":1590559706424}; return __REQUIRE__(map[modId], modId); })
+return __REQUIRE__(1590559706422);
 })()
 //# sourceMappingURL=index.js.map
