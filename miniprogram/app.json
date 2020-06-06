@@ -1,12 +1,10 @@
 {
   "pages": [
-    "pages/welcome/welcome",
-    "pages/question/question",
-    "pages/news/news",
-    "pages/quiz/quiz",
-    "pages/quizEntry/quizEntry",
-    "pages/quizResult/quizResult",
-    "pages/user/user"
+    "pages/answer/answer",
+    "pages/ask/ask",
+    "pages/trend/trend",
+    "pages/user/user",
+    "pages/qrcode/qrcode"
   ],
   "tabBar": {
     "custom": false,
@@ -16,35 +14,35 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/welcome/welcome",
-        "iconPath": "image/noun_java_424584.png",
-        "selectedIconPath": "image/noun_java_424621.png",
-        "text": "Welcome"
+        "pagePath": "pages/answer/answer",
+        "iconPath": "image/question_1.png",
+        "selectedIconPath": "image/question.png",
+        "text": "Answer"
       },
       {
-        "pagePath": "pages/question/question",
-        "iconPath": "image/noun_Question_646495.png",
-        "selectedIconPath": "image/noun_Question_1145852.png",
-        "text": "Today's Question"
+        "pagePath": "pages/ask/ask",
+        "iconPath": "image/question_1.png",
+        "selectedIconPath": "image/question.png",
+        "text": "Ask"
       },
       {
-        "pagePath": "pages/quizEntry/quizEntry",
-        "iconPath": "image/noun_Question_2709356.png",
-        "selectedIconPath": "image/noun_Question_2709392.png",
-        "text": "Quiz"
+        "pagePath": "pages/trend/trend",
+        "iconPath": "image/tubiaozhizuomoban-.png",
+        "selectedIconPath": "image/tubiaozhizuomoban-_1.png",
+        "text": "Trending"
       },
       {
         "pagePath": "pages/user/user",
-        "iconPath": "image/noun_User_1551879.png",
-        "selectedIconPath": "image/noun_User_1551880.png",
+        "iconPath": "image/User2.png",
+        "selectedIconPath": "image/User.png",
         "text": "Me"
       }
     ]
   },
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Java Quiz",
+    "navigationBarTitleText": "YOLO",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },

@@ -1,101 +1,83 @@
 // pages/user/user.js
-
+const app = getApp()
 const db = wx.cloud.database()
+const questionsCollection = db.collection('questions')
 
 Page({
 
   /**
-   * 页面的初始数据
+   * Page initial data
    */
   data: {
-    openid: '',
-    questionsCount: 0,
-    user: '',
-    quizAveScore: 0,
+    questionArr:[]
   },
 
-  getQuizAve: function (openid) {
-    db.collection('users').where({
-      _openid: openid
-    }).get({
-      success: res => {
-        let quizHistory = []
-        quizHistory = res.data[0].quizHistory
-        var sum = 0;
-        for (var i = 0; i < quizHistory.length; i++) {
-          sum += parseFloat(quizHistory[i], 10); 
-        }
-        this.setData({
-          quizAveScore:(sum/quizHistory.length).toFixed(1)
-        })
-      }
+  onPullDownRefresh: function() { 
+    this.onLoad()
+   },
+
+  findQuestion: function () {
+    questionsCollection.where({
+      _openid: app.globalData.openid,
+    }).get().then((res)=>{
+      let array = res.data
+      let questionArr = []
+      for (var index = 0; index < array.length; index++) { 
+        questionArr.push(array[index].question)
+      } 
+      this.setData({
+        questionArr: questionArr
+      })
     })
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * Lifecycle function--Called when page load
    */
-  onLoad: function() {
-    //console.log("in user.js onLoad")
-    var app = getApp();
-    var openid = app.globalData.openid;
-    var user = app.globalData.user;
-    var questionsCount = app.globalData.user.questionsCount;
-
-    this.setData({
-      openid: openid,
-      user: user,
-      questionsCount: questionsCount
-    })
+  onLoad: function (options) {
+    wx.stopPullDownRefresh()
+    this.findQuestion()
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * Lifecycle function--Called when page is initially rendered
    */
-  onReady: function() {},
+  onReady: function () {
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-    var app = getApp();
-    var openid = app.globalData.openid;
-    db.collection('users').where({
-      _openid: openid
-    }).get({
-      success: res => {
-        this.setData({
-          questionsCount: res.data[0].questionsCount
-        })
-      }
-    })
-    this.getQuizAve(openid)
   },
 
   /**
-   * 生命周期函数--监听页面隐藏
+   * Lifecycle function--Called when page show
    */
-  onHide: function() {},
+  onShow: function () {
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-    wx.stopPullDownRefresh();
   },
 
   /**
-   * 页面上拉触底事件的处理函数
+   * Lifecycle function--Called when page hide
    */
-  onReachBottom: function() {},
+  onHide: function () {
+
+  },
 
   /**
-   * 用户点击右上角分享
+   * Lifecycle function--Called when page unload
    */
-  onShareAppMessage: function() {}
+  onUnload: function () {
+
+  },
+
+  /**
+   * Called when page reach bottom
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * Called when user click on the top right corner to share
+   */
+  onShareAppMessage: function () {
+
+  }
 })
