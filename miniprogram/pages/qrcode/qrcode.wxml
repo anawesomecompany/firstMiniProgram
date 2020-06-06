@@ -6,4 +6,8 @@
 
 <text selectable='true'>{{q_id}}</text>
 
+<view>
+    <wux-button open-type='share' full='true' type="balanced" size="small">分享</wux-button>
+</view>
+
 
