@@ -1,21 +1,2 @@
-/**app.wxss**/
-/* 导入weui.css样式 */
-@import 'weui.wxss';
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-} 
+@import "./styles/iconfont.wxss"
 
-button {
-  background: initial;
-}
-
-button:focus{
-  outline: 0;
-}
-
-button::after{
-  border: none;
-}

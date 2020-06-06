@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "wux-button": "wux-weapp/button/index",
-    "wux-card": "wux-weapp/card/index",
-    "wux-white-space": "wux-weapp/white-space/index",
-    "wux-toast": "wux-weapp/toast/index"
-  }
-}

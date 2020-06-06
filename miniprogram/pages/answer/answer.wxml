@@ -1,0 +1,44 @@
+<!-- pages/ask/ask.wxml -->
+<view>
+  <view class="page__bd">
+    <wux-cell hover-class="none">
+        <wux-textarea 
+          bind:change="onChange"
+          rows = "1" 
+          placeholder="问题编号?" 
+        />
+    </wux-cell>
+  </view>
+  <wux-button 
+        size="small" 
+        bind:click="findQuestion" 
+        full="true" 
+        type="balanced">
+        找问题
+  </wux-button>
+</view>
+
+<view>{{question}}</view>
+
+<view>
+  <view class="page__bd">
+    <wux-cell hover-class="none">
+        <wux-textarea 
+          bind:change="onChangeAnswer"
+          rows = "5" 
+          placeholder="我的答案" 
+        />
+    </wux-cell>
+  </view>
+  <wux-button 
+        size="small" 
+        bind:click="submitAnswer" 
+        full="true" 
+        type="balanced">
+        回答
+  </wux-button>
+</view>
+
+<view wx:for="{{answerArr}}" wx:key="unique" style="display: block;">
+  {{item}}
+</view>
