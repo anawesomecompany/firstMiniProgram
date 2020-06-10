@@ -14,3 +14,16 @@
     />
 	</view>
 </view>
+
+<view>
+    <view wx:for="{{askedQuestionArr}}" wx:key="unique" style="display: block;">
+    {{item}}
+    </view>
+</view>
+
+<view>
+<text>我的回答</text>
+    <view wx:for="{{answeredQuestionArr}}" wx:key="unique" style="display: block;">
+    {{item}}
+    </view>
+</view>
