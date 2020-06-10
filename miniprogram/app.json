@@ -4,20 +4,27 @@
     "pages/ask/ask",
     "pages/trend/trend",
     "pages/user/user",
-    "pages/qrcode/qrcode"
+    "pages/qrcode/qrcode",
+    "pages/mine/mine"
   ],
   "tabBar": {
     "custom": false,
-    "color": "#7A7E83",
-    "selectedColor": "#3cc51f",
+    "color": "black",
+    "selectedColor": "black",
     "borderStyle": "black",
-    "backgroundColor": "#ffffff",
+    "backgroundColor": "#FFFFFF",
     "list": [
       {
         "pagePath": "pages/answer/answer",
         "iconPath": "image/question_1.png",
         "selectedIconPath": "image/question.png",
         "text": "Answer"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "image/question_1.png",
+        "selectedIconPath": "image/question.png",
+        "text": "Mine"
       },
       {
         "pagePath": "pages/ask/ask",

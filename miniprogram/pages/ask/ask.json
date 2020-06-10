@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "文字",
   "usingComponents": {
       "wux-icon": "wux-weapp/icon/index",
       "wux-button": "wux-weapp/button/index",

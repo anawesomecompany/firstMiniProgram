@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "wux-tabs": "wux-weapp/tabs/index",
+    "wux-tab": "wux-weapp/tab/index",
+    "wux-icon": "wux-weapp/icon/index",
+    "wux-fab-button": "wux-weapp/fab-button/index"
+}
+}

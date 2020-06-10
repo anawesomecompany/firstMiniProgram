@@ -1,27 +1,34 @@
-<!-- pages/ask/ask.wxml -->
 <view>
-  <view class="page__bd">
-    <wux-cell hover-class="none">
-        <wux-textarea 
-          bind:change="onChange"
-          rows = "10" 
-          placeholder="你想问什么?" 
-        />
-    </wux-cell>
-  </view>
-  <wux-button 
-        size="small" 
-        bind:click="submitQuestion" 
-        full="true" 
-        type="balanced">
-        Ask
-  </wux-button>
+	<view class="textInput">
+		<wux-textarea 
+			bind:change="onChange" 
+			auto-focus="true" 
+			hasCount="true"
+			placeholder="小朋友，你是否有很多问号?" 
+			rows="10" 
+		/>
+	</view>
+	<view class="option">
+		<wux-checkbox-group 
+			name="options" 
+			value="{{ answerVisible }}" 
+			bind:change="onChangeCheckBoxAnswerVisible">
+			<wux-checkbox 
+				key="1"
+				color="positive" 
+				title="答案对他人可见" 
+				value="1" 
+			/>
+		</wux-checkbox-group>
+	</view>
+	<view class="submitButton">
+		<wux-button 
+			size="default" 
+			disabled="{{question === ''}}" 
+			bind:click="submitQuestion" 
+			full="true" 
+			type="positive">
+			提问
+		</wux-button>
+	</view>
 </view>
-
-<view class="option">
-    <wux-checkbox-group name="a" value="{{ answerVisible }}" title="Options" bind:change="onChangeCheckBoxAnswerVisible">
-        <wux-checkbox color="balanced" title="问题的答案对所有人可见" value="1" />
-        <wux-checkbox color="balanced" title="???????" value="2" />
-    </wux-checkbox-group>
-</view>
-

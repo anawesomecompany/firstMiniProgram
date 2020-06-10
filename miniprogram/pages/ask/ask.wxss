@@ -1,1 +1,11 @@
-/* pages/ask/ask.wxss */
+.textInput {
+  padding: 30rpx;
+}
+
+.option {
+  padding: 20rpx 50rpx;
+}
+
+.submitButton {
+  padding: 0rpx 50rpx;
+}
