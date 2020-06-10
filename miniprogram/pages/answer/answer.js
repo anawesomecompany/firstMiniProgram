@@ -48,7 +48,8 @@ Page({
       data: {
         answer: this.data['answer'],
         question_id: this.data['question_id'],
-        owner: app.globalData.openid
+        owner: app.globalData.openid,
+        timeStamp: Math.floor(Date.now() / 1000)
       }
     }).then((res)=>{
       this.refreshAnswer(this.data['answerVisibleToAll'])
