@@ -31,8 +31,8 @@ Page({
     console.log('onclick', e.detail.index);
 
     if(e.detail.index === 1) {
-      wx.switchTab({
-        url: '/pages/ask/ask',
+      wx.navigateTo({
+        url: '../ask/ask',
       });
     }
   },

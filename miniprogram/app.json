@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/mine/mine",
     "pages/answer/answer",
     "pages/ask/ask",
     "pages/trend/trend",
     "pages/user/user",
-    "pages/qrcode/qrcode",
-    "pages/mine/mine"
+    "pages/qrcode/qrcode"
+   
   ],
   "tabBar": {
     "custom": false,
@@ -15,23 +16,18 @@
     "backgroundColor": "#FFFFFF",
     "list": [
       {
-        "pagePath": "pages/answer/answer",
-        "iconPath": "image/question_1.png",
-        "selectedIconPath": "image/question.png",
-        "text": "Answer"
-      },
-      {
         "pagePath": "pages/mine/mine",
         "iconPath": "image/question_1.png",
         "selectedIconPath": "image/question.png",
         "text": "Mine"
       },
       {
-        "pagePath": "pages/ask/ask",
+        "pagePath": "pages/answer/answer",
         "iconPath": "image/question_1.png",
         "selectedIconPath": "image/question.png",
-        "text": "Ask"
+        "text": "Answer"
       },
+ 
       {
         "pagePath": "pages/trend/trend",
         "iconPath": "image/tubiaozhizuomoban-.png",
@@ -48,9 +44,9 @@
   },
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#387ef5",
     "navigationBarTitleText": "YOLO",
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
   },
   "sitemapLocation": "sitemap.json"

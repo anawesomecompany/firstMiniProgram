@@ -1,7 +1,7 @@
 <view>
 	<wux-tabs current="{{currentTab}}" bind:change="onTabChange" theme="positive">
-		<wux-tab key="myQuestions" title="我的问题"></wux-tab>
-		<wux-tab key="myAnswers" title="我的回答"></wux-tab>
+		<wux-tab key="myQuestions" title="提出的问题"></wux-tab>
+		<wux-tab key="myAnswers" title="回答的问题"></wux-tab>
 	</wux-tabs>
 	<view>
 		<wux-fab-button 
