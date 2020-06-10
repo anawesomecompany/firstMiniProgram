@@ -25,7 +25,8 @@ Page({
       data: {
         question: this.data['question'],
         owner: app.globalData.openid,
-        answerVisibleToAll: this.data['answerVisible'].length != 0
+        answerVisibleToAll: this.data['answerVisible'].length != 0,
+        timeStamp: Math.floor(Date.now() / 1000)
       }
     }).then((res)=>{
       this.setData({
