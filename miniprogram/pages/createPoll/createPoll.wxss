@@ -1,0 +1,19 @@
+.textInput {
+  padding: 30rpx;
+}
+
+.option {
+  padding: 20rpx 50rpx;
+}
+
+.submitButton {
+  padding: 0rpx 50rpx;
+}
+
+.divider {
+  padding: 0rpx 50rpx 0rpx 0rpx;
+}
+
+.uploadSection {
+  padding: 0rpx 0rpx 0rpx 50rpx;
+}

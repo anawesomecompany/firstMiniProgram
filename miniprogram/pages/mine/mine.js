@@ -38,8 +38,12 @@ Page({
   onClickAddButton(e) {
     // console.log('onclick', e.detail.index);
     if(e.detail.index === 1) {
-      wx.switchTab({
-        url: '/pages/ask/ask',
+      wx.navigateTo({
+        url: '../compose/compose',
+      });
+    } else if (e.detail.index === 0) {
+      wx.navigateTo({
+        url: '../createPoll/createPoll',
       });
     }
   },

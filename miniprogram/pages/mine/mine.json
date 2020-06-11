@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "问题箱",
   "usingComponents": {
     "wux-tabs": "wux-weapp/tabs/index",
     "wux-tab": "wux-weapp/tab/index",
