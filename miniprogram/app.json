@@ -2,11 +2,11 @@
   "pages": [
     "pages/mine/mine",
     "pages/answer/answer",
-    "pages/ask/ask",
+    "pages/compose/compose",
     "pages/trend/trend",
     "pages/user/user",
-    "pages/qrcode/qrcode"
-   
+    "pages/qrcode/qrcode",
+    "pages/createPoll/createPoll"
   ],
   "tabBar": {
     "custom": false,
@@ -27,7 +27,6 @@
         "selectedIconPath": "image/question.png",
         "text": "Answer"
       },
- 
       {
         "pagePath": "pages/trend/trend",
         "iconPath": "image/tubiaozhizuomoban-.png",

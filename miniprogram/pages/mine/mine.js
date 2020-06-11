@@ -39,7 +39,11 @@ Page({
     // console.log('onclick', e.detail.index);
     if(e.detail.index === 1) {
       wx.navigateTo({
-        url: '../ask/ask',
+        url: '../compose/compose',
+      });
+    } else if (e.detail.index === 0) {
+      wx.navigateTo({
+        url: '../createPoll/createPoll',
       });
     }
   },
