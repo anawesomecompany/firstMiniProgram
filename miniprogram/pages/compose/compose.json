@@ -6,9 +6,8 @@
       "wux-textarea": "wux-weapp/textarea/index",
       "wux-checkbox-group": "wux-weapp/checkbox-group/index",
       "wux-checkbox": "wux-weapp/checkbox/index",
-      "wux-row": "wux-weapp/row/index",
-      "wux-col": "wux-weapp/col/index",
       "wux-upload": "wux-weapp/upload/index",
-      "wux-divider": "wux-weapp/divider/index"
+      "wux-row" : "wux-weapp/row/index",
+      "wux-col" : "wux-weapp/col/index"
   }
 }

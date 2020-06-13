@@ -3,27 +3,20 @@
 		<wux-tab key="myQuestions" title="提出的问题"></wux-tab>
 		<wux-tab key="myAnswers" title="回答的问题"></wux-tab>
 	</wux-tabs>
-	<view>
-		<wux-fab-button 
-      bind:click="onClickAddButton" 
-      buttons="{{ buttons }}" 
-      direction="vertical"
-      paceBetween="20"
-      position="bottomRight" 
-      theme="positive" 
-    />
+	<view bindtap="onTest">
+		<wux-fab-button actionRotate="{{ false }}" bind:click="onClickAddButton" bind:_click="onClickAddButton" direction="vertical" spaceBetween="20" position="bottomRight" theme="positive" />
 	</view>
 </view>
 
 <view>
-    <view wx:for="{{askedQuestionArr}}" wx:key="unique" style="display: block;">
-    {{item}}
-    </view>
+	<view wx:for="{{askedQuestionArr}}" wx:key="unique" style="display: block;">
+		{{item}}
+	</view>
 </view>
 
 <view>
-<text>我的回答</text>
-    <view wx:for="{{answeredQuestionArr}}" wx:key="unique" style="display: block;">
-    {{item}}
-    </view>
+	<text>我的回答</text>
+	<view wx:for="{{answeredQuestionArr}}" wx:key="unique" style="display: block;">
+		{{item}}
+	</view>
 </view>

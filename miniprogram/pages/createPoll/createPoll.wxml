@@ -1,36 +1,29 @@
 <wux-actionsheet id="wux-actionsheet" />
 <view>
 	<view class="textInput">
-		<wux-textarea bind:change="onChange" auto-focus="true" hasCount="true" placeholder="小朋友，你是否有很多问号?" rows="4" />
-	</view>
-	<view class="option">
-		<wux-checkbox-group name="options" value="{{ answerVisible }}" bind:change="onChangeCheckBoxAnswerVisible">
-			<wux-checkbox key="1" color="positive" title="答案对他人可见" value="1" />
-		</wux-checkbox-group>
-	</view>
-	<view class="submitButton">
-		<wux-row>
-			<wux-col span="7">
-				<wux-button size="default" full="true" bind:click="onClickOptionButton" type="stable">
-					<wux-icon type="{{ showUpload ? 'ios-close-circle-outline' : 'ios-add-circle-outline' }}" size="16" />
-					{{ uploadButtonLabel}}
-				</wux-button>
-			</wux-col>
-			<wux-col offset="1" span="4">
-				<wux-button size="default" disabled="{{question === ''}}" full="true" bind:click="submitQuestion" type="positive">
-					<wux-icon type="ios-paper-plane" size="16" />
-					创建
-				</wux-button>
-			</wux-col>
-		</wux-row>
+		<wux-textarea bind:change="onChange" auto-focus="true" hasCount="true" placeholder="小朋友，你是否有很多问号?" rows="6" />
 	</view>
 	<view class="uploadSection" wx:if="{{ showUpload }}">
-		<view class="divider">
-			<wux-divider show-text="{{ false }}" />
-		</view>
 		<wux-upload wux-class="upload" url="https://www.skyvow.cn/api/common/file" listType="picture-card" defaultFileList="{{ fileList }}" max="9" bind:change="onUploadChange" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete" bind:preview="onUploadPreview">
 			<wux-icon type="ios-add-circle-outline" />
 		</wux-upload>
+	</view>
+	<view class="footer">
+		<view class="option">
+			<wux-checkbox-group name="options" value="{{ answerVisible }}" bind:change="onChangeCheckBoxAnswerVisible">
+				<wux-checkbox key="1" color="positive" title="答案对他人可见" value="1" />
+			</wux-checkbox-group>
+		</view>
+		<view class="submitButton">
+			<wux-button size="default" full="true" bind:click="onClickOptionButton" type="stable">
+				<wux-icon type="{{ showUpload ? 'ios-close-circle-outline' : 'ios-image' }}" size="16" />
+				{{ uploadButtonLabel}}
+			</wux-button>
+			<wux-button size="default" disabled="{{question === ''}}" full="true" bind:click="submitQuestion" type="positive">
+				<wux-icon type="ios-paper-plane" size="16" />
+				创建
+			</wux-button>
+		</view>
 	</view>
 
 </view>
