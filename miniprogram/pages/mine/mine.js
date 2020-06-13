@@ -5,24 +5,11 @@ const questionsCollection = db.collection('questions')
 const answersCollection = db.collection('answers')
 const _ = db.command
 
-
-const buttons = [
-  {
-    label: '创建投票',
-    icon: CONSTANT.pollIcon,
-  },
-  {
-    label: '撰写图文',
-    icon: CONSTANT.composeIcon,
-  },
-]
-
 Page({
   /**
    * Page initial data
    */
   data: {
-    buttons,
     currentTab: "myQuestions",
     askedQuestionArr:[],
     answeredQuestionArr:[],
@@ -36,16 +23,9 @@ Page({
   },
 
   onClickAddButton(e) {
-    // console.log('onclick', e.detail.index);
-    if(e.detail.index === 1) {
-      wx.navigateTo({
-        url: '../compose/compose',
-      });
-    } else if (e.detail.index === 0) {
-      wx.navigateTo({
-        url: '../createPoll/createPoll',
-      });
-    }
+    wx.navigateTo({
+      url: '../compose/compose',
+    });
   },
 
   loadAskedQuestions: function() {

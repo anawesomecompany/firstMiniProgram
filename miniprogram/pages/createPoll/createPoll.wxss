@@ -17,3 +17,9 @@
 .uploadSection {
   padding: 0rpx 0rpx 0rpx 50rpx;
 }
+
+.footer {
+  bottom: 50rpx;
+  position: fixed;
+  width: 100%;
+}

@@ -14,8 +14,11 @@ Page({
     question_id: '',
     answerVisible: [],
     fileList: [],
+    pollList: [],
     uploadButtonLabel: "上传图片",
+    pollButtonLabel: "添加选项",
     showUpload: false,
+    showPoll: false,
   },
 
   onChange(e) {
@@ -30,10 +33,35 @@ Page({
       this.setData({
         fileList: [],
       });
+    } else {
+      this.setData({
+        pollList: [],
+      });
     }
     this.setData({
       showUpload: updatedFlag,
       uploadButtonLabel: updatedFlag ? "取消上传" : "上传图片",
+      showPoll: false,
+      pollButtonLabel: "添加选项",
+    });
+  },
+
+  onClickPoll() {
+    const updatedFlag = !this.data.showPoll;
+    if(updatedFlag) {
+      this.setData({
+        pollList: [],
+      });
+    } else {
+      this.setData({
+        fileList: [],
+      });
+    }
+    this.setData({
+      showPoll: updatedFlag,
+      pollButtonLabel: updatedFlag ? "取消选项" : "添加选项",
+      showUpload: false,
+      uploadButtonLabel: "上传图片",
     });
   },
 
