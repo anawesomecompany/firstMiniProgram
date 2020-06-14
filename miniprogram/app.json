@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/compose/compose",
     "pages/mine/mine",
     "pages/answer/answer",
+    "pages/compose/compose",
     "pages/trend/trend",
     "pages/user/user",
     "pages/qrcode/qrcode",
