@@ -2,9 +2,9 @@
 	<view class="textInput">
 		<wux-textarea bind:change="onChange" auto-focus="true" hasCount="true" placeholder="小朋友，你是否有很多问号?" rows="6" />
 	</view>
-	<view class="uploadSection" wx:if="{{ showUpload }}">
-		<wux-upload wux-class="upload" url="https://imgur.com/" listType="picture-card" defaultFileList="{{ fileList }}" max="9" bind:change="onUploadChange" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete" bind:preview="onUploadPreview">
-			<wux-icon type="ios-add-circle-outline" />
+	<view class="uploadSection" wx:if="{{ showUpload || showPoll }}">
+		<wux-upload wux-class="upload" listType="picture-card" defaultFileList="{{ fileList }}" max="9" bind:change="onUploadChange" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete" bind:preview="onUploadPreview" _isPoll="{{ isPoll }}" _userID="{{ userID }}">
+			<wux-icon type="ios-camera" />
 		</wux-upload>
 	</view>
 	<view class="footer">
@@ -28,7 +28,6 @@
 					</wux-button>
 				</wux-col>
 			</wux-row>
-
 			<wux-button size="default" disabled="{{question === ''}}" full="true" bind:click="submitQuestion" type="positive">
 				<wux-icon type="ios-paper-plane" size="16" />
 				提问
