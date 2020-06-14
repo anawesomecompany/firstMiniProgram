@@ -10,6 +10,7 @@ Page({
    * Page initial data
    */
   data: {
+    userID: '',
     question: '',
     question_id: '',
     answerVisible: [],
@@ -19,6 +20,7 @@ Page({
     pollButtonLabel: "添加选项",
     showUpload: false,
     showPoll: false,
+    isPoll: false,
   },
 
   onChange(e) {
@@ -29,15 +31,12 @@ Page({
 
   onClickUpload() {
     const updatedFlag = !this.data.showUpload;
-    if(updatedFlag) {
-      this.setData({
-        fileList: [],
-      });
-    } else {
-      this.setData({
-        pollList: [],
-      });
-    }
+    this.setData({
+      fileList: [],
+      pollList: [],
+      isPoll: false,
+      userID: app.globalData.openid,
+    });
     this.setData({
       showUpload: updatedFlag,
       uploadButtonLabel: updatedFlag ? "取消上传" : "上传图片",
@@ -48,15 +47,12 @@ Page({
 
   onClickPoll() {
     const updatedFlag = !this.data.showPoll;
-    if(updatedFlag) {
-      this.setData({
-        pollList: [],
-      });
-    } else {
-      this.setData({
-        fileList: [],
-      });
-    }
+    this.setData({
+      fileList: [],
+      pollList: [],
+      isPoll: true,
+      userID: app.globalData.openid,
+    });
     this.setData({
       showPoll: updatedFlag,
       pollButtonLabel: updatedFlag ? "取消选项" : "添加选项",
@@ -88,6 +84,7 @@ Page({
     })
   },
   onUploadSuccess(e) {
+    // image path in e.detail.file.res.fileID
     console.log('onSuccess', e)
     console.log('files', this.data.fileList);
   },

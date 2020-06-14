@@ -11,9 +11,9 @@ Page({
    */
   data: {
     currentTab: "myQuestions",
-    askedQuestionArr:[],
-    answeredQuestionArr:[],
-    answered_questions_id:[],
+    askedQuestionArr: [],
+    answeredQuestionArr: [],
+    answered_questions_id: [],
   },
 
   onTabChange(e) {
@@ -28,43 +28,43 @@ Page({
     });
   },
 
-  loadAskedQuestions: function() {
+  loadAskedQuestions: function () {
     questionsCollection.where({
-      owner:app.globalData.openid,
-    }).get().then((res)=>{
+      owner: app.globalData.openid,
+    }).get().then((res) => {
       console.log(res)
       let array = res.data
       let askedQuestionArr = []
-      for (var index = 0; index < array.length; index++) { 
+      for (var index = 0; index < array.length; index++) {
         askedQuestionArr.push(array[index].question)
-      } 
+      }
       this.setData({
         askedQuestionArr: askedQuestionArr
       })
     })
   },
 
-  loadAnsweredQuestions: function() {
+  loadAnsweredQuestions: function () {
     answersCollection.where({
       owner: app.globalData.openid,
-    }).get().then((res)=>{
+    }).get().then((res) => {
       let array = res.data
       let answered_questions_id = []
-      for (var index = 0; index < array.length; index++) { 
+      for (var index = 0; index < array.length; index++) {
         answered_questions_id.push(array[index].question_id)
-      } 
+      }
       this.setData({
         answered_questions_id: answered_questions_id
       })
-    }).then(()=>{
+    }).then(() => {
       questionsCollection.where({
         _id: _.in(this.data['answered_questions_id'])
-      }).get().then((res)=>{
+      }).get().then((res) => {
         let array = res.data
         let answeredQuestionArr = []
-        for (var index = 0; index < array.length; index++) { 
+        for (var index = 0; index < array.length; index++) {
           answeredQuestionArr.push(array[index].question)
-        } 
+        }
         this.setData({
           answeredQuestionArr: answeredQuestionArr
         })

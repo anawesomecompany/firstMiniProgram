@@ -15,6 +15,7 @@
 }
 
 .uploadSection {
+  height: 100rpx;
   padding: 0rpx 0rpx 0rpx 50rpx;
 }
 
