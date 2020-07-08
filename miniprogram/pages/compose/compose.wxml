@@ -3,7 +3,7 @@
 		<wux-textarea bind:change="onChange" auto-focus="true" hasCount="true" placeholder="小朋友，你是否有很多问号?" rows="6" />
 	</view>
 	<view class="uploadSection" wx:if="{{ showUpload || showPoll }}">
-		<wux-upload wux-class="upload" listType="picture-card" defaultFileList="{{ fileList }}" max="9" bind:change="onUploadChange" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete" bind:preview="onUploadPreview" _isPoll="{{ isPoll }}" _userID="{{ userID }}">
+		<wux-upload wux-class="upload" listType="picture-card" defaultFileList="{{ fileList }}" max="9" bind:change="onUploadChange" bind:textChange="onOptionTextListChange" bind:success="onUploadSuccess" bind:fail="onUploadFail" bind:complete="onUploadComplete" bind:preview="onUploadPreview" _isPoll="{{ isPoll }}" _isPollImage="{{ isPollImage }}" _userID="{{ userID }}">
 			<wux-icon type="ios-camera" />
 		</wux-upload>
 	</view>

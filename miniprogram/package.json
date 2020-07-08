@@ -1,7 +1,6 @@
 {
   "name": "miniprogram",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +8,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "wux-weapp": "^3.8.5",
+    "wux-weapp": "^3.8.6",
     "wx-server-sdk": "^0.8.1"
-  }
+  },
+  "description": ""
 }
