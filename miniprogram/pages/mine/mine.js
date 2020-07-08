@@ -76,8 +76,16 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    this.loadAskedQuestions()
-    this.loadAnsweredQuestions()
+    const that = this;
+    if(app.globalData.isOpenIDReady) {
+      that.loadAskedQuestions();
+      that.loadAnsweredQuestions();
+    } else {
+      app.fetchOpenIDCallBack = res => {
+        that.loadAskedQuestions();
+        that.loadAnsweredQuestions();
+      }
+    }
   },
 
   /**

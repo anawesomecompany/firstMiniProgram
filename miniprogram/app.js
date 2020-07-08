@@ -45,6 +45,10 @@ App({
           //console.log("failed to find any user with such openid, so insert new user")
           this.insertUser(openid)
         }
+        this.globalData.isOpenIDReady = true;
+        if(this.fetchOpenIDCallBack) {
+          this.fetchOpenIDCallBack(res);
+        }
       }
     })
   },
@@ -66,5 +70,6 @@ App({
   globalData: {
     openid: '',
     user:'',
+    isOpenIDReady: false,
   }
 })
