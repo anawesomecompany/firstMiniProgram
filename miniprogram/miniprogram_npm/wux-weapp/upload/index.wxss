@@ -1,0 +1,238 @@
+.wux-upload {
+  position: relative;
+  display: block
+}
+
+.wux-upload::after,
+.wux-upload::before {
+  display: table;
+  content: " "
+}
+
+.wux-upload::after {
+  clear: both
+}
+
+.wux-upload--disabled {
+  opacity: .3
+}
+
+.wux-upload--picture-card .wux-upload__select {
+  width: 200rpx;
+  height: 200rpx;
+  border: 1PX solid #d9d9d9;
+  border-radius: 8rpx;
+  margin: 0 16rpx 16rpx 0;
+  background-color: #fafafa;
+  transition: border-color .3s ease;
+  box-sizing: border-box;
+  float: left
+}
+
+.wux-upload--picture-card .wux-upload__option {
+  width: 600rpx;
+  height: 150rpx;
+  margin: 0rpx 16rpx 16rpx 0rpx;
+  transition: border-color .3s ease;
+  box-sizing: border-box;
+  display: inline-flex;
+  text-align: left;
+  -ms-flex-pack: center;
+  justify-content: start;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  float: left
+}
+
+.wux-upload--picture-card .wux-upload__optionImg {
+  border-right: 1PX solid #d9d9d9;
+  width: 150rpx;
+  height: 150rpx;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  padding: 8rpx;
+  box-sizing: border-box
+}
+
+.wux-upload--picture-card .wux-upload__optionText {
+  width: 150rpx;
+  height: 150rpx;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  padding: 8rpx;
+  box-sizing: border-box
+}
+
+.wux-upload--picture-card .wux-upload__optionLabel {
+  width: 25rpx;
+  height: 150rpx;
+  margin: 0 16rpx 16rpx 0;
+  transition: border-color .3s ease;
+  box-sizing: border-box;
+  display: inline-flex;
+  text-align: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  float: left
+}
+
+.wux-upload--picture-card .wux-upload__imageOption {
+  background-color: #fafafa;
+  border: 1PX solid #d9d9d9;
+  border-radius: 8rpx;
+  width: 150rpx;
+  height: 150rpx;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  padding: 8rpx;
+  box-sizing: border-box
+}
+
+.wux-upload--picture-card .wux-upload__textOption {
+  background-color: #fafafa;
+  border: 1PX solid #d9d9d9;
+  border-radius: 8rpx;
+  width: 600rpx;
+  height: 150rpx;
+  margin-bottom: 16rpx;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+  -ms-flex-pack: center;
+  justify-content: start;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  padding: 50rpx;
+  box-sizing: border-box
+}
+
+.wux-upload--picture-card .wux-upload__addTextOptionButton {
+  background-color: #fafafa;
+  border: 1PX solid #d9d9d9;
+  border-radius: 8rpx;
+  width: 150rpx;
+  height: 150rpx;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+  -ms-flex-pack: center;
+  justify-content: start;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  padding: 50rpx;
+  box-sizing: border-box
+}
+
+.wux-upload--picture-card .wux-upload__button {
+  width: 100%;
+  height: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  padding: 8rpx;
+  box-sizing: border-box
+}
+
+.wux-upload--picture-card .wux-upload__button image {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  overflow: hidden
+}
+
+.wux-upload--picture-card .wux-upload__files {
+  height: 650rpx;
+  width: 650rpx;
+  position: relative;
+  display: block;
+  float: left
+}
+
+.wux-upload--picture-card .wux-upload__files::after,
+.wux-upload--picture-card .wux-upload__files::before {
+  display: table;
+  content: " "
+}
+
+.wux-upload--picture-card .wux-upload__files::after {
+  clear: both
+}
+
+.wux-upload--picture-card .wux-upload__file {
+  width: 200rpx;
+  height: 200rpx;
+  float: left;
+  margin: 0 16rpx 16rpx 0;
+  padding: 8rpx;
+  border-radius: 8rpx;
+  border: 1PX solid #d9d9d9;
+  position: relative;
+  box-sizing: border-box
+}
+
+.wux-upload--picture-card .wux-upload__optionFile {
+  width: 150rpx;
+  height: 150rpx;
+  float: left;
+  margin: 0 16rpx 16rpx 0;
+  padding: 8rpx;
+  border-radius: 8rpx;
+  border: 1PX solid #d9d9d9;
+  position: relative;
+  box-sizing: border-box
+}
+
+.wux-upload--picture-card .wux-upload__file--uploading {
+  border-style: solid
+}
+
+.wux-upload--picture-card .wux-upload__file--error {
+  border-color: #f5222d
+}
+
+.wux-upload--picture-card .wux-upload__thumb {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  overflow: hidden
+}
+
+.wux-upload--picture-card .wux-upload__remove {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 12rpx;
+  top: -4rpx;
+  text-align: right;
+  vertical-align: top;
+  z-index: 2;
+}
