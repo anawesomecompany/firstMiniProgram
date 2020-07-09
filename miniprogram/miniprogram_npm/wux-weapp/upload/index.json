@@ -1,7 +1,0 @@
-{
-    "component": true,
-    "usingComponents": {
-        "wux-textarea" : "wux-weapp/input/index",
-        "wux-icon" : "wux-weapp/icon/index"
-    }
-}
