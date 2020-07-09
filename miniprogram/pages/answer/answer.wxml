@@ -1,6 +1,5 @@
-<!-- pages/ask/ask.wxml -->
 <view>
-  <view class="page__bd">
+  <view>
     <wux-cell hover-class="none">
         <wux-textarea 
           bind:change="onChange"
@@ -10,10 +9,10 @@
     </wux-cell>
   </view>
   <wux-button 
-        size="small" 
+        size="default" 
         bind:click="findQuestion" 
         full="true" 
-        type="balanced">
+        type="positive">
         找问题
   </wux-button>
 </view>
@@ -21,7 +20,7 @@
 <view>{{question}}</view>
 
 <view>
-  <view class="page__bd">
+  <view wx:if="{{ showAnswerTextArea }}">
     <wux-cell hover-class="none">
         <wux-textarea 
           bind:change="onChangeAnswer"
@@ -30,13 +29,29 @@
         />
     </wux-cell>
   </view>
-  <wux-button 
-        size="small" 
-        bind:click="submitAnswer" 
-        full="true" 
-        type="balanced">
-        回答
-  </wux-button>
+
+  <view wx:if="{{ showTextChoicesArea }}">
+  showTextChoicesArea
+        <form bindsubmit="formSubmit">
+            <wux-checkbox-group name="choice" value="{{ value3 }}" title="" bind:change="onChange3">
+                <wux-checkbox title="A" extra="wceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewca" value="choice_a" />
+                <wux-checkbox title="B" extra="caecdcs" value="choice_b" />
+                <!-- <wux-checkbox title="C" extra="{{q.choice_c}}" value="choice_c" />
+                <wux-checkbox title="D" extra="{{q.choice_d}}" value="choice_d" /> -->
+            </wux-checkbox-group>
+        </form>
+</view>
+
+  <view class="submitButton">
+    <wux-button 
+          size="default" 
+          bind:click="submitAnswer" 
+          full="true" 
+          type="positive">
+          回答
+    </wux-button>
+  </view>
+  
 </view>
 
 <view wx:for="{{answerArr}}" wx:key="unique" style="display: block;">

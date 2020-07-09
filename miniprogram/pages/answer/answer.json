@@ -4,6 +4,12 @@
     "wux-button": "wux-weapp/button/index",
     "wux-textarea": "wux-weapp/textarea/index",
     "wux-cell-group": "wux-weapp/cell-group/index",
-    "wux-cell": "wux-weapp/cell/index"
+    "wux-cell": "wux-weapp/cell/index",
+    "wux-row": "wux-weapp/row/index",
+    "wux-col": "wux-weapp/col/index",
+    "wux-image": "wux-weapp/image/index",
+    "wux-checkbox-group": "wux-weapp/checkbox-group/index",
+    "wux-checkbox": "wux-weapp/checkbox/index",
+    "wux-toast": "wux-weapp/toast/index"
   }
 }

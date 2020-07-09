@@ -22,3 +22,7 @@
   position:fixed; 
   width: 650rpx;
 }
+
+.submitButton {
+  padding: 0rpx 50rpx;
+}

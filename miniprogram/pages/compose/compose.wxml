@@ -9,7 +9,7 @@
 	</view>
 	<view class="footer">
 		<view class="option">
-			<wux-checkbox-group name="options" value="{{ answerVisible }}" bind:change="onChangeCheckBoxAnswerVisible">
+			<wux-checkbox-group name="options" value="{{ answer_visible_to_all }}" bind:change="onChangeCheckBoxAnswerVisible">
 				<wux-checkbox key="1" color="positive" title="答案对他人可见" value="1" />
 			</wux-checkbox-group>
 		</view>
