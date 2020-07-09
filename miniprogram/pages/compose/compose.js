@@ -1,6 +1,8 @@
 // pages/ask/ask.js
 const db = wx.cloud.database()
 const questionsCollection = db.collection('questions')
+const imagesCollection = db.collection('images')
+const choicesCollection = db.collection('choices')
 const app = getApp()
 
 Page({
@@ -9,9 +11,9 @@ Page({
    */
   data: {
     userID: app.globalData.openid,
-    question: '',
+    question_content: '',
     question_id: '',
-    answerVisible: [],
+    answer_visible_to_all: [],
     fileList: [],
     optionTextList: [],
     uploadButtonLabel: "图片",
@@ -23,7 +25,7 @@ Page({
   },
   onChange(e) {
     this.setData({
-      question: e.detail.value,
+      question_content: e.detail.value,
     })
   },
   onClickUpload() {
@@ -158,43 +160,75 @@ Page({
     console.log('fileList: ', this.data.fileList);
     console.log('optionTextList: ', this.data.optionTextList);
 
-    //TODO: write to questions DB
+    const indexLetter = ['A','B','C','D','E','F','G','H','I']
+    const question_type = this.data.isPoll? (this.data.isPollImage? 'imagePoll':'textPoll'): 'regular'
+
+    let question_data = {
+      question_content: this.data['question_content'],
+      owner_id : this.data['userID'],
+      answer_visible_to_all: this.data['answer_visible_to_all'].length==1,
+      answers_count: 0,
+      question_type: question_type,
+      time_stamp: Math.floor(Date.now() / 1000)
+    }
+
+    // console.log(question_data)
+
     questionsCollection.add({
-      data: {
-        question: this.data['question'],
-        owner: app.globalData.openid,
-        answerVisibleToAll: this.data['answerVisible'].length != 0,
-        timeStamp: Math.floor(Date.now() / 1000)
-      }
+      data: question_data
     }).then((res) => {
       this.setData({
         question_id: res._id
       })
     }).then((res) => {
+      const fileList = this.data['fileList']
+      for (let index = 0; index < fileList.length; index++) { 
+        imagesCollection.add({
+          data: {
+            image_id: fileList[index].res.fileID,
+            question_id: this.data['question_id']
+          }
+        }).then((res) => {
+          console.log('images saved')
+        }) 
+
+        if(question_type === 'imagePoll'){
+          choicesCollection.add({
+            data: {
+              choice_content: fileList[index].res.fileID,
+              question_id: this.data['question_id'],
+              index: indexLetter[index]
+            }
+          }).then((res) => {
+            console.log('choices saved')
+          }) 
+        }
+      }
+    
+      if(question_type === 'textPoll'){
+        const optionTextList = this.data.optionTextList
+        for (let index = 0; index < optionTextList.length; index++) { 
+          choicesCollection.add({
+            data: {
+              choice_content: optionTextList[index],
+              question_id: this.data['question_id'],
+              index: indexLetter[index]
+            }
+          }).then((res) => {
+            console.log('choices saved')
+          }) 
+        }
+      }
+    }).then((res) => {
       let q_id = this.data['question_id']
       wx.navigateTo({
         url: `../qrcode/qrcode?q_id=${q_id}`
       })
-      // clear state data
-      this.setData({
-        userID: app.globalData.openid,
-        question: '',
-        question_id: '',
-        answerVisible: [],
-        fileList: [],
-        optionTextList: [],
-        uploadButtonLabel: "图片",
-        pollButtonLabel: "投票",
-        showUpload: false,
-        showPoll: false,
-        isPoll: false,
-        isPollImage: false,
-      });
-    })
+    }) 
   },
 
   onChangeCheckBoxAnswerVisible(e) {
-    this.onChangeCheckBox('answerVisible', e)
+    this.onChangeCheckBox('answer_visible_to_all', e)
   },
 
   onChangeCheckBox(field, e) {
@@ -207,6 +241,7 @@ Page({
     this.setData({
       [field]: current,
     })
+    console.log(current)
   },
 
   /**
