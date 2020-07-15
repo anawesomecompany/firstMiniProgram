@@ -5,8 +5,6 @@ const answersCollection = db.collection('answers')
 const choicesCollection = db.collection('choices')
 const app = getApp()
 
-import { $wuxToast } from '../../dist/index'
-
 Page({
 
   /**
@@ -84,17 +82,6 @@ Page({
   },  
 
   submitAnswer: function () {
-    // answersCollection.add({
-    //   data: {
-    //     answer: this.data['my_answer_content'],
-    //     question_id: this.data['question_id'],
-    //     owner: app.globalData.openid,
-    //     timeStamp: Math.floor(Date.now() / 1000)
-    //   }
-    // }).then((res)=>{
-    //   this.refreshAnswer(this.data['answer_visible_to_all'])
-    // })
-    // console.log(this.data.value1)
     switch(this.data.question_type){
       case 'regular':
         answersCollection.add({
@@ -105,10 +92,23 @@ Page({
             timeStamp: Math.floor(Date.now() / 1000)
           }
         }).then((res)=>{
-          
+          this.showToast()
         })
         break;
       case 'textPoll':
+        const choices = this.data['value1']
+        for (let index = 0; index < choices.length; index++) { 
+          answersCollection.add({
+            data: {
+              answer_content: choices[index],
+              question_id: this.data['question_id'],
+              owner_id: app.globalData.openid,
+              timeStamp: Math.floor(Date.now() / 1000)
+            }
+          }).then((res)=>{
+          })
+          this.showToast()
+        }
         break;
       case 'imagePoll':
         break;
@@ -116,6 +116,14 @@ Page({
     }
 
   },
+
+  showToast() {
+    wx.showToast({
+      title: '答案提交成功',
+      icon: 'success',
+      duration: 2000
+    })
+},
 
   refreshAnswer:function(answerVisibleToAll){
     if(!answerVisibleToAll){
