@@ -2,7 +2,10 @@
 const db = wx.cloud.database()
 const questionsCollection = db.collection('questions')
 const answersCollection = db.collection('answers')
+const choicesCollection = db.collection('choices')
 const app = getApp()
+
+import { $wuxToast } from '../../dist/index'
 
 Page({
 
@@ -12,7 +15,8 @@ Page({
   data: {
     question_id: '',
     question_type: '',
-    choices:'',
+    question_content:'',
+    choices_arr:[],
     images_arr:[],
     my_answer_content:'',
     my_choice:'',
@@ -21,33 +25,23 @@ Page({
     showAnswerTextArea: false,
     showTextChoicesArea: false,
     showImageChoicesArea: false,
+
+    value1:[]
   },
 
-  onChangeCheckBox(field, e) {
+  onCheckboxChange(e) {
+    const field = 'value1'
     const { value } = e.detail
     const data = this.data[field]
     const index = data.indexOf(value)
     const current = index === -1 ? [...data, value] : data.filter((n) => n !== value)
     this.setData({
-      [field]: current,
+        [field]: current,
     })
-  },
 
-  onChange3(e) {
-    if (this.data.preEvent != '') {
-      this.onResetCheckBox(this.data.preEvent);
-    }
-    this.setData({
-      preEvent: e
-    })
-    this.onChangeCheckBox('value3', e)
+    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
   },
-
-  onResetCheckBox(e){
-    e.detail.checked = false;
-    this.onChange('value3',e);
-  },
-
+   
   onChange(e) {
     this.setData({
       question_id: e.detail.value,
@@ -61,58 +55,66 @@ Page({
   },
 
   findQuestion: function () {
+    // get question
     questionsCollection.where({
       _id: this.data['question_id']
     }).get().then((res)=>{
-      // const question = res.data[0].question
-      // const answer_visible_to_all = res.data[0].answer_visible_to_all
       this.setData({
         question_type: res.data[0].question_type,
+        question_content: res.data[0].question_content,
         answer_visible_to_all: res.data[0].answer_visible_to_all,
         showAnswerTextArea: this.data.question_type === 'regular',
         showTextChoicesArea: this.data.question_type === 'textPoll',
         showImageChoicesArea: this.data.question_type === 'imagePoll',
       })
-    }).then((res)=>{
-      // this.refreshAnswer(this.data['answer_visible_to_all'])
-      // console.log(this.data.question_type === 'textPoll')
-      // console.log(this.data.showAnswerTextArea)
-      // console.log(this.data.showTextChoicesArea)
-      // console.log(this.data.showImageChoicesArea)
+    })
 
+    // get choices
+    choicesCollection.where({
+      question_id: this.data['question_id']
+    }).get().then((res)=>{
+      this.setData({
+        choices_arr: res.data,
+      })
     })
   },
 
   formSubmit(e) {
-    //console.log('form发生了submit事件，携带数据为：', e.detail.value.choice[0])
-    //console.log(e.detail.value.choice.length)
-    if (e.detail.value.choice.length==1 &&
-      e.detail.value.choice[0]==this.data.q.answer){
-      this.setData({
-        score:this.data.score+1
-      })
-      this.showToast()
-    }else{
-      this.showToastCancel()
-    }
-    this.next();
-    if (e.detail.value.choice.length != 0){
-      this.onResetCheckBox(this.data.preEvent);
-    }
-    this.data.preEvent = ''
-  },
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+  },  
 
   submitAnswer: function () {
-    answersCollection.add({
-      data: {
-        answer: this.data['my_answer_content'],
-        question_id: this.data['question_id'],
-        owner: app.globalData.openid,
-        timeStamp: Math.floor(Date.now() / 1000)
-      }
-    }).then((res)=>{
-      this.refreshAnswer(this.data['answer_visible_to_all'])
-    })
+    // answersCollection.add({
+    //   data: {
+    //     answer: this.data['my_answer_content'],
+    //     question_id: this.data['question_id'],
+    //     owner: app.globalData.openid,
+    //     timeStamp: Math.floor(Date.now() / 1000)
+    //   }
+    // }).then((res)=>{
+    //   this.refreshAnswer(this.data['answer_visible_to_all'])
+    // })
+    // console.log(this.data.value1)
+    switch(this.data.question_type){
+      case 'regular':
+        answersCollection.add({
+          data: {
+            answer_content: this.data['my_answer_content'],
+            question_id: this.data['question_id'],
+            owner_id: app.globalData.openid,
+            timeStamp: Math.floor(Date.now() / 1000)
+          }
+        }).then((res)=>{
+          
+        })
+        break;
+      case 'textPoll':
+        break;
+      case 'imagePoll':
+        break;
+      default:
+    }
+
   },
 
   refreshAnswer:function(answerVisibleToAll){
