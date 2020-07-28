@@ -36,7 +36,6 @@ Page({
     this.setData({
         [field]: current,
     })
-
     console.log('checkbox发生change事件，携带value值为：', e.detail.value)
   },
    
@@ -68,11 +67,20 @@ Page({
     })
 
     // get choices
+    let unsortedArr
     choicesCollection.where({
       question_id: this.data['question_id']
     }).get().then((res)=>{
+      unsortedArr = res.data
+      unsortedArr.sort(function(a, b){
+        if(a.index < b.index) { return -1; }
+        if(a.index > b.index) { return 1; }
+        return 0;
+      })
+    }).then((res)=>{
+      console.log(unsortedArr)
       this.setData({
-        choices_arr: res.data,
+        choices_arr: unsortedArr,
       })
     })
   },
@@ -82,6 +90,9 @@ Page({
   },  
 
   submitAnswer: function () {
+
+    let q_id = this.data['question_id']
+
     switch(this.data.question_type){
       case 'regular':
         answersCollection.add({
@@ -93,7 +104,11 @@ Page({
           }
         }).then((res)=>{
           this.showToast()
-        })
+        }).then((res) => {
+          wx.navigateTo({
+            url: `../qrcode/qrcode?q_id=${q_id}`
+          })
+        }) 
         break;
       case 'textPoll':
         const choices = this.data['value1']
@@ -106,15 +121,18 @@ Page({
               timeStamp: Math.floor(Date.now() / 1000)
             }
           }).then((res)=>{
-          })
-          this.showToast()
+            this.showToast()
+          }).then((res) => {
+            wx.navigateTo({
+              url: `../qrcode/qrcode?q_id=${q_id}`
+            })
+          }) 
         }
         break;
       case 'imagePoll':
         break;
       default:
     }
-
   },
 
   showToast() {

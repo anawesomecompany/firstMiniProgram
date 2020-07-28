@@ -32,6 +32,16 @@
     </wux-cell>
   </view>
 
+  <view wx:if="{{ showImageChoicesArea }}" >
+        <form bindsubmit="formSubmit">
+            <wux-checkbox-group name="choice" value="{{ value1 }}" bind:change="onCheckboxChange"
+            wx:for="{{choices_arr}}" wx:for-index="idx" wx:for-item="item">
+                <wux-checkbox color="positive" title="{{item.index}}" value="{{item.index}}" />
+                <wux-image wux-class="image" mode="aspectFit" shape="rounded" src="{{item.choice_content}}" />
+            </wux-checkbox-group>
+        </form>
+  </view>
+
 
   <view wx:if="{{ showTextChoicesArea }}" >
   
@@ -41,7 +51,7 @@
                 <wux-checkbox color="positive" title="{{item.index}}" extra="{{item.choice_content}}" value="{{item.index}}" />
             </wux-checkbox-group>
         </form>
-</view>
+  </view>
 
   <view class="submitButton" wx:if="{{ showTextChoicesArea|| showAnswerTextArea||showImageChoicesArea}}">
     <wux-button 
