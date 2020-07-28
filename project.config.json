@@ -21,7 +21,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"appid": "wx58a51cddffa75a36",
@@ -47,6 +47,10 @@
 		"game": {
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 2,
 			"list": [
@@ -68,6 +72,20 @@
 					"id": -1,
 					"name": "quiz",
 					"pathName": "pages/quiz/quiz",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/compose/compose",
+					"pathName": "pages/compose/compose",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/answer/answer",
+					"pathName": "pages/answer/answer",
 					"scene": null
 				}
 			]

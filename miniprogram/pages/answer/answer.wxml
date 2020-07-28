@@ -17,7 +17,9 @@
   </wux-button>
 </view>
 
-<view>{{question}}</view>
+ <view wx:if="{{ showTextChoicesArea||showAnswerTextArea||showImageChoicesArea}}">
+    {{question_content}}
+  </view>
 
 <view>
   <view wx:if="{{ showAnswerTextArea }}">
@@ -30,25 +32,34 @@
     </wux-cell>
   </view>
 
-  <view wx:if="{{ showTextChoicesArea }}">
-  showTextChoicesArea
+  <view wx:if="{{ showImageChoicesArea }}" >
         <form bindsubmit="formSubmit">
-            <wux-checkbox-group name="choice" value="{{ value3 }}" title="" bind:change="onChange3">
-                <wux-checkbox title="A" extra="wceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewcawceewcewca" value="choice_a" />
-                <wux-checkbox title="B" extra="caecdcs" value="choice_b" />
-                <!-- <wux-checkbox title="C" extra="{{q.choice_c}}" value="choice_c" />
-                <wux-checkbox title="D" extra="{{q.choice_d}}" value="choice_d" /> -->
+            <wux-checkbox-group name="choice" value="{{ value1 }}" bind:change="onCheckboxChange"
+            wx:for="{{choices_arr}}" wx:for-index="idx" wx:for-item="item">
+                <wux-checkbox color="positive" title="{{item.index}}" value="{{item.index}}" />
+                <wux-image wux-class="image" mode="aspectFit" shape="rounded" src="{{item.choice_content}}" />
             </wux-checkbox-group>
         </form>
-</view>
+  </view>
 
-  <view class="submitButton">
+
+  <view wx:if="{{ showTextChoicesArea }}" >
+  
+        <form bindsubmit="formSubmit">
+            <wux-checkbox-group name="choice" value="{{ value1 }}" bind:change="onCheckboxChange"
+            wx:for="{{choices_arr}}" wx:for-index="idx" wx:for-item="item">
+                <wux-checkbox color="positive" title="{{item.index}}" extra="{{item.choice_content}}" value="{{item.index}}" />
+            </wux-checkbox-group>
+        </form>
+  </view>
+
+  <view class="submitButton" wx:if="{{ showTextChoicesArea|| showAnswerTextArea||showImageChoicesArea}}">
     <wux-button 
           size="default" 
           bind:click="submitAnswer" 
           full="true" 
           type="positive">
-          回答
+          提交答案
     </wux-button>
   </view>
   
